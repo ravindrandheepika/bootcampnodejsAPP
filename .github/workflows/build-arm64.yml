@@ -1,0 +1,28 @@
+name: Build ARM64 Image
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Login to ACR
+      uses: azure/docker-login@v1
+      with:
+        login-server: dheepuacr2026.azurecr.io
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+
+    - name: Build and push ARM64 image
+      run: |
+        docker buildx create --use
+        docker buildx build \
+          --platform linux/arm64 \
+          -t dheepuacr2026.azurecr.io/dheepika96/bootcampnodejsapp:arm64 \
+          --push .
