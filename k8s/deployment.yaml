@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bootcampnodejsapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bootcampnodejsapp
+  template:
+    metadata:
+      labels:
+        app: bootcampnodejsapp
+    spec:
+      containers:
+      - name: bootcampnodejsapp
+        image: dheepuacr2026.azurecr.io/dheepika96/bootcampnodejsapp:latest
+        ports:
+        - containerPort: 3000
