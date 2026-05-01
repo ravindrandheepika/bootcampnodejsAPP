@@ -8,7 +8,7 @@ on:
 env:
   ACR_NAME: dheepuacr2026
   IMAGE_NAME: dheepika96/bootcampnodejsapp
-  TAG: v4
+  TAG: v5
 
 jobs:
   build-and-push:
