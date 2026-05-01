@@ -3,7 +3,7 @@ name: Build and Push AMD64 Image
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   ACR_NAME: dheepuacr2026
